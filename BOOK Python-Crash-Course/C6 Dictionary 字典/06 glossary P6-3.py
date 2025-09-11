@@ -13,12 +13,11 @@ glossary = {
 
 # 打印每个术语及其含义
 print("list: " + glossary['list'])
+print("\n")
 print("dictionary: " + glossary['dictionary'])
+print("\n")
 print("string: " + glossary['string'])
+print("\n")
 print("integer: " + glossary['integer'])
+print("\n")
 print("float: " + glossary['float'])
-
-# 遍历词汇表
-for term, meaning in glossary.items():
-    print(term + ": " + meaning)
-    print("\n")
