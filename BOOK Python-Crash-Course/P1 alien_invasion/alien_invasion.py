@@ -96,6 +96,8 @@ class AlienInvasion:
             self.stats.reset_stats()
             self.stats.game_active = True
             self.sb.prep_score()
+            self.sb.prep_level()
+            self.sb.prep_ships()
             
             # 清空余下的外星人和子弹
             self.aliens.empty()
@@ -143,9 +145,11 @@ class AlienInvasion:
             # 删除现有的所有子弹并创建一群新外星人
             self.bullets.empty()
             self._create_fleet()
-            
-            # 提高游戏节奏
             self.settings.increase_speed()
+            
+            # 提高等级
+            self.stats.level += 1
+            self.sb.prep_level()
     
     def _update_screen(self):
         """更新屏幕上的图像，并切换到新屏幕"""
@@ -228,6 +232,7 @@ class AlienInvasion:
         if self.stats.ships_left > 0:
             # 将ships_left减1
             self.stats.ships_left -= 1
+            self.sb.prep_ships()
 
             # 清空余下的外星人和子弹
             self.aliens.empty()
